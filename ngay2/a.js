@@ -25,3 +25,9 @@ console.log(max);
 // cách khác không cần khai báo biến max
 
 a > b ? console.log(a) : console.log(b);
+
+// 1 tính chất trong javascrip, đó là 1 biến có thể mang nhiều kiểu dữ liệu
+// ví dụ: lúc nó mang kiểu chữ, lúc mang kiểu số
+//typeof để xác định nó mang kiểu dữ liệu gì.
+console.log(typeof 'max');
+console.log(typeof max);
