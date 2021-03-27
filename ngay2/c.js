@@ -4,5 +4,5 @@
 let a;
 console.log(a);
 console.log(a + 5 * 5);
-console.log(null+5);
-console.log(-1/0);
+console.log(null + 5);
+console.log(-1 / 0);
