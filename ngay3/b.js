@@ -2,15 +2,15 @@ function veHinh1(soDong) {
     for (let i = 1; i < soDong; i++) {
         let s ='';
         for(let j = 1; j <= soDong; j++) {
-           // if(j<=i) s+= '*' // cách khác          
-            const dieuKien = j <= i; 
+           // if(j<=i) s+= '*' // để mô hình hoá, ta phải viết cách khác          
+            const dieuKien = j <= i; // j <= i nghĩa là i = j;
             s += dieuKien ? '*' : ' '
             
         }
         console.log(s);
     }
 }
-
+//ta truyên tham số là function vào để xử lý chỗ khác nhau veHinh1 và veHinh2 là veHinh
 //veHinh2(5)
 /*
         *
@@ -31,21 +31,21 @@ function veHinh2(soDong) {
         for(let j = 1; j <= soDong; j++) {
             /*const dieuKien = j <= i;
             s += (i + j >= soDong +1) ? '*' : ' '
-            */
-           const dieuKien = i +j >= soDong + 1;
+            */ //để mô hình hoá ta viết cách khác giống veHinh1
+           const dieuKien = i + j >= soDong + 1;
            s +=dieuKien ? '*' : ' ';
 
         }
         console.log(s);
     }
 }
-
+// **** để mô hình hoá lại thì phải có điểm chung, nếu chưa giống nhau thì phải đưa nó đến dạng gần giống nhau đến mức có thể mô hình hoá được
 /*
-function veHinh(soDong, checkPoint) {
+function veHinh(soDong, checkPoint) {    //checkPoint là check từng điểm 1
     for(let i = 1; i <= soDong; i++) {
         let s = '';
         for(let j = 1; j <= soDong; j++) {
-           const dieuKien = checkPoint(i, j, soDong);
+           const dieuKien = checkPoint(i, j, soDong); //hình 1 không có soDong nên ta truyền 3 tham số dư soDong
            s +=dieuKien ? '*' : ' ';
 
         }
@@ -56,8 +56,8 @@ function veHinh(soDong, checkPoint) {
 //2 cách
 
 console.log('        ');
-veHinh(5, function(i, j, n) {
-    return i >= j;
+veHinh(5, function(i, j, n) {       //ta có thể đặt biến khác (n, j, i) về thứ tự thì không thay đổi thì n đây mang ý nghĩa i theo checkPoint(i, j, soDong)
+    return i >= j;                  // tuân theo thứ tự các tham số chứ không tuân theo các biến vì ở đây minh khai báo function nên thích đặt sao cũng được, đặt giống để dễ dàng đối chiếu   
 });
 console.log('        ');
 veHinh(5, (i, j, n) => i >= j);
