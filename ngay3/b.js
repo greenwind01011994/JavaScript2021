@@ -1,3 +1,24 @@
+/*
+*
+**
+***
+****
+*****
+    *
+   **
+  ***
+ ****
+*****
+i la so Dong
+j la so cot
+1 - 5
+2 - 4
+3 - 2 
+i + j >= soDong + 1
+*/
+
+
+
 function veHinh1(soDong) {
     for (let i = 1; i < soDong; i++) {
         let s ='';
@@ -158,6 +179,6 @@ function veHinh(soDong, checkPoint, getSoCot) { //ta có thể thêm 1 function 
 }
 veHinh(5, (i, j) => j <= i);
 veHinh(5, (i, j, n) => i + j >= n + 1);
-veHinh(5, (i, j, n) => Math.abs(j - n) <= i - 1, soDong => soDong);
+veHinh(5, (i, j, n) => Math.abs(j - n) <= i - 1, soDong => soDong * 2 - 1);
 
 
