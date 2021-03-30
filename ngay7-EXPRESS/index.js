@@ -12,10 +12,23 @@ app.get('/', (req, res) => {
     res.render('a');
 });
 
-app.get('/chao/:name', (req, res) => {
+app.get('/chao/:name', (req, res) => {  ///4. ta truyên vào ('/ 1 route = link (//là 1), (req(// chứa thông tin người dùng gửi lên), res(// chứa các phương thức đáp trả req) => log(''))
     const name = req.params.name;
-    res.send('Chao ' + name);
+    res.send('Chao ' + name); /// send chỉ 1 lần thì không bị lỗi
+});///app.get  có 2 tham số '/chao/:name' và () =>{}// đây cũng là function. 
+///nếu function quá dài thì tách ra như sau:
+/*
+    const handler = (req,res) =>{
+        res.send('Chao ' + name);
+    }
+    app.get('/',handler);///-> /chao/:name /:age  nghĩa là truy cập web theo form thì nó trả lại đúng thế
+
+    app.get('/hello/:name/:age', (req, res) => {
+    const name = req.params.name;
+    const age = req.params.age;
+    res.send('xin chào toi la ${name}, ${age} tuoi '); /// 1 rout in nhiều link khác 
 });
+*/ 
 
 app.get('/tinh/:tenPhepTinh/:soA/:soB', (req, res) => {
     const { tenPhepTinh, soA, soB } = req.params;
