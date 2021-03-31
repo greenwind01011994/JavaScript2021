@@ -77,9 +77,9 @@ app.get('/chao/:name', (req, res) => {  ///4. ta truyên vào ('/ 1 route = link
         let chuoiPhepTinh;
         const {tenPhepTinh, soA, soB} = this
         chuoiPhepTinh = `${soA} /${soB}`
-        if tenPhepTinh ==='CONG') chuoiPhepTinh = `${soA} + ${soB}`;
-        if tenPhepTinh ==='TRU') chuoiPhepTinh = `${soA} - ${soB}`;
-        if tenPhepTinh ==='NHAN') chuoiPhepTinh = `${soA} * ${soB}`;
+        if (tenPhepTinh ==='CONG') chuoiPhepTinh = `${soA} + ${soB}`;
+        if (tenPhepTinh ==='TRU') chuoiPhepTinh = `${soA} - ${soB}`;
+        if (tenPhepTinh ==='NHAN') chuoiPhepTinh = `${soA} * ${soB}`;
         return chuoiPhepTinh;
     }
     getResultString() {
@@ -91,15 +91,15 @@ app.get('/chao/:name', (req, res) => {  ///4. ta truyên vào ('/ 1 route = link
     //làm gọn và đẹp hơn nũa. đây là cách tách hàm 
     getChuoiPhepTinh() {
         const {tenPhepTinh, soA, soB} = this
-        if tenPhepTinh ==='CONG') return `${soA} + ${soB}`;
-        if tenPhepTinh ==='TRU') return  `${soA} - ${soB}`;
-        if tenPhepTinh ==='NHAN') return `${soA} * ${soB}`;
+        if (tenPhepTinh ==='CONG') return `${soA} + ${soB}`;
+        if (tenPhepTinh ==='TRU') return  `${soA} - ${soB}`;
+        if (tenPhepTinh ==='NHAN') return `${soA} * ${soB}`;
         return `${soA} / ${soB}`;
     }
     getResultString() {
         const chuoiPhepTinh = this.getChuoiPhepTinh     //không nên gọi getChuoiPhepTinh vì nó sẽ hiểu là function ở ngoài 
         const result = eval(chuoiPhepTinh);
-        return `${chuoiPhepTinh} = ${result};
+        return `${chuoiPhepTinh} = ${result}`;
     }
     //chạy
     const a = new Tinh('CONG', 3, 4);
@@ -111,15 +111,15 @@ app.get('/tinh/:tenPhepTinh/:soA/:soB', (req, res) => {     //5. tách nó ra cl
     const { tenPhepTinh, soA, soB } = req.params;
     const pt = new PhepTinh(tenPhepTinh, soA, soB);
     res.send(pt.getResultString());
-});
+});// ta tạo ra 1 thư mục controllers (function controllers) và models (các phép tính)  để  tách function ra 1 file khác 
 
 // localhost:3000/CONG/4/5 -> '4 + 5 = 9'
 
 app.get('/x', (req, res) => res.send('HIHIHIHI'));
-app.get('*', (req, res) => res.send('404 Not found'));
+app.get('*', (req, res) => res.send('404 Not found'));  ///6. nếu nhập sai link thì trả về. và không để trên trước vì nó sẽ nhảy vào đây hết
 app.listen(3000, () => console.log('Server started'));  ///3. app.listen(8080);trách post 8080. tới đây là tạo 1 server đắp trả (chưa theo ý mình muốn)
 
-class PhepTinh {
+class PhepTinh {        //class PhepTinh vào models
     constructor(tenPhepTinh, soA, soB) {
         this.tenPhepTinh = tenPhepTinh;
         this.soA = soA;
@@ -137,3 +137,9 @@ class PhepTinh {
         return `${soA} / ${soB}`;
     }
 }
+/*
+///khi tạo fouder controller và models thì ta làm theo cách này 2 trực tiếp req
+app.get('/tinh/:tenPhepTinh/:soA/:soB', require('./controllers/tinhController')); /// (./) ta được phép truy cập vào các file fouder khác cùng cấp và lúc này chưa chạy, chưa biết tính ở đâu
+//tạo tạo models
+app.listen(3000);
+*/

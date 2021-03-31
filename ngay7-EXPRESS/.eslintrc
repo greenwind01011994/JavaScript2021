@@ -1,0 +1,23 @@
+/*
+{
+    "parserOptions": {
+        "ecmaVersion" : 6,
+        "sourceType" : "module",
+        "ecmaFeatures" : {
+            "jsx" : true
+        }
+    },
+    "rules" : {
+        "semi" : 2,
+        
+    }
+}
+*/
+// .eslintrc cài đặt để nhắc nhở các lỗi, như khai báo mà chưa xài, chưa khai báo ,...
+//ta gõ để cài đặt : Npm install eslint-rallycoding –save-dev
+{
+    "extends": "rallycoding",
+    "rules" : {     //những lỗi mà mình chịu được thì nó không báo như khai báo thừa
+        "prefer-template": "off"
+    }
+}
