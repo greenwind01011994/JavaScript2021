@@ -11,5 +11,5 @@ app.set('views', './views-ht'); //đang xét views là tên thuộc tính của 
     // khi chuyển đổi file đuôi html thành ejs thì ta không cần dùng views-ht/a.html
 app.get('/', (req, res) => res.sendfile('./views-ht/a.html'));// truy cập vào file html
 */
-app.get('/', (req, res) => res.render('home.ejs'));   //home là home.ejs ; render là gửi code thành giao diện
+app.get('/', (req, res) => res.render('home'));   //home là home.ejs ; render là gửi code thành giao diện
 app.listen(3000, () => console.log('Server started'));
