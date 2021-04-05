@@ -21,7 +21,11 @@ const arrX = [
     { name: 'Tun', age: 12},
 ];
 app.locals.arrPeople = arrX;// không phải cứ tên biên là arryPeople thì gi là arrypeople
-//Cách truyền thứ 2 
+
+//6. 
+const arrSubjects = ['Node' , 'Angular', 'Mongo', 'Express'];
+
+
 //1. thư mục các file views nằm ở views-ht
 app.set('views', './views-ht'); //đang xét views là tên thuộc tính của nó chưa phải tên thu mục nên phải ghi đúng //
 //đây là câu lệnh viết thừa khi đặt tên views-ht là views (mặc định), nên viết vào cho đủ nếu 2 cái ghi khác nhau
@@ -40,7 +44,7 @@ app.get('/', (req, res) => res.render('home')); // render ra file    //home là 
 //5. cách truyền thứ 2, câu lênh render có 2 tham số, tham số thứ 2 là 1 oject có thuộc tính username thì bên ejs sẽ thành tên biến username 
 //app.get('/learn', (req, res) => res.render('learn', { username: 'phong'}));
 app.get('/learn', (req, res) =>{
-    res.render('learn', { username: 'phong1'});
+    res.render('learn', { username: 'phong1', arrSubjects });//muốn render các mảng môn học thì arrSubjects: arrySubjects. khi tên thuộc tính = tên giá trị thì ta rút gọn thành arrSubjects
 });
 //còn cách 1 : app.locals. phù hợp các thông tin mà người dùng đều dùng chung
 

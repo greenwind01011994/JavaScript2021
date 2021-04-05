@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<% const isAdmin = true %> <!-- ở đây ta có biến isAdmin -->
-<% const arrSubjects = ['Node' , 'Angular', 'Mongo', 'Express']%> <!-- mảng-->
+<!--
+<% const isAdmin = true %>   //ở đây ta có biến isAdmin 
+<% const arrSubjects = ['Node' , 'Angular', 'Mongo', 'Express'] %>  // mảng
+<% const arrPeople = [
+    { name: 'Ti', age: 10 },
+    { name: 'Teo', age: 11},
+    { name: 'Tun', age: 12},
+]; %>
+-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,9 +37,15 @@
         <p>10</p>
     })-->
     <% arrPeople.forEach(person => { %>
-        <h3>Ten: <%= person.name %></h3>
-        <p>Tuoi: <%= person.age %></p>
-    <% }); %>
+        <!-- nếu đoạn này quá dài thì ta tách nó ra file personRow
+        <div>
+            <h3>Ten: <%= person.name %></h3>
+            <p>Tuoi: <%= person.age %></p>
+        </div>
+    -->
+    <!--  <%- include('./partials/personRow.ejs', person) %> // nếu bên này chỉ truyền  biến person không thì bên personRow ta sửa lại-->
+        <%- include('./partials/personRow.ejs', {person}) %> <!--//khai báo biến person : person ,còn này ngược lại -->
+    <% }); %> <!-- chưa biết sai gì ở đây phần cuối-->
     <script src = "reload/reload.js"> </script>
 </body>
 </html>
