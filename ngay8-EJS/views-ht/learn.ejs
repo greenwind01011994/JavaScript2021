@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+<% const a = 'đây' %>    
+<% const isAdmin = true %> <!-- ở đây ta có biến isAdmin -->
+<% const arrSubjects = ['Node' , 'Angular', 'Mongo', 'Express']%> <!-- mảng-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn EJS</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>vui12</h1>
+    <h1><%= a%></h1>
+    
+    <% if(isAdmin) { %>
+        <a href="#"> Trang chu</a>
+    <%  } else { %>
+        <a href="#">quay lai</a>
+    <%  }%> <!--cách viết này rất dễ sinh ra lỗi, ta cứ viết if else rồi thêm <%%> để đỡ phát sinh lỗi -->
+
+
+    <!--arrSubjects.forEach(subject => { 
+        <h3>MEAD</h3>
+     }); --> <!-- để không sinh ra lỗi ta viết cấu trúc logic xong rồi thêm <% %>-->
+    <% arrSubjects.forEach(subject => { %>
+        <h3><%= subject></h3>
+    <% }); %> <!-- forEach() nhận tham số là một function, 1. với mỗi phần tử subject mình để trong thẻ h3
+    
+    -->
     <script src = "reload/reload.js"> </script>
 </body>
 </html>
