@@ -2,11 +2,6 @@
 <html lang="en">
 <% const isAdmin = true %> <!-- ở đây ta có biến isAdmin -->
 <% const arrSubjects = ['Node' , 'Angular', 'Mongo', 'Express']%> <!-- mảng-->
-<% const arrPeople = [
-    { name: 'Ti', age: 10 },
-    { name: 'Teo', age: 11},
-    { name: 'Tun', age: 12},
-] %>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1><%= username%></h1>
     <% if(isAdmin) { %>
         <a href="#"> Trang chu</a>
     <%  } else { %>
