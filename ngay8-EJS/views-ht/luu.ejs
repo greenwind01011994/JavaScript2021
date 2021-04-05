@@ -3,10 +3,10 @@
 <% const isAdmin = true %> <!-- ở đây ta có biến isAdmin -->
 <% const arrSubjects = ['Node' , 'Angular', 'Mongo', 'Express']%> <!-- mảng-->
 <% const arrPeople = [
-    { name: 'Ti', age: 10 },
+    { name: 'Ti', age:10 },
     { name: 'Teo', age: 11},
     { name: 'Tun', age: 12},
-] %>
+]; %>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +25,7 @@
         <h3>MEAD</h3>
      }); --> <!-- để không sinh ra lỗi ta viết cấu trúc logic xong rồi thêm <% %>-->
     <% arrSubjects.forEach(subject => { %>
-        <h3><%= subject %></h3>
+        <h3><%= subject></h3>
     <% }); %> <!-- forEach() nhận tham số là một function, 1. với mỗi phần tử subject mình để trong thẻ h3    
     -->
 
@@ -33,10 +33,9 @@
         <h3>ti</h3>
         <p>10</p>
     })-->
-    <% arrPeople.forEach(person => { %>
+    <% arrPeople.forEach(peoson => { %>
         <h3>Ten: <%= person.name %></h3>
         <p>Tuoi: <%= person.age %></p>
     <% }); %>
-    <script src = "reload/reload.js"> </script>
 </body>
 </html>
