@@ -36,16 +36,18 @@
         <h3>ti</h3>
         <p>10</p>
     })-->
+    
     <% arrPeople.forEach(person => { %>
         <!-- nếu đoạn này quá dài thì ta tách nó ra file personRow
         <div>
             <h3>Ten: <%= person.name %></h3>
             <p>Tuoi: <%= person.age %></p>
         </div>
-    -->
-    <!--  <%- include('./partials/personRow.ejs', person) %> // nếu bên này chỉ truyền  biến person không thì bên personRow ta sửa lại-->
+        -->
+        <!--  <%- include('./partials/personRow.ejs', person) %> // nếu bên này chỉ truyền  biến person không thì bên personRow ta sửa lại-->
         <%- include('./partials/personRow.ejs', {person}) %> <!--//khai báo biến person : person ,còn này ngược lại -->
     <% }); %> <!-- chưa biết sai gì ở đây phần cuối-->
+
     <script src = "reload/reload.js"> </script>
 </body>
 </html>
