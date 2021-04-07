@@ -1,0 +1,23 @@
+{
+  "name": "JavaScript2021",
+  "version": "1.0.0",
+  "description": "Giới thiệu ở đây",
+  "main": "a.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenwind01011994/JavaScript2021.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/greenwind01011994/JavaScript2021/issues"
+  },
+  "homepage": "https://github.com/greenwind01011994/JavaScript2021#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
