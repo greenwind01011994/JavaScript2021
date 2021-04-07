@@ -16,7 +16,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><%= username%></h1>
+    <h1><%= username %></h1>
     <% if(isAdmin) { %>
         <a href="#"> Trang chu</a>
     <%  } else { %>
@@ -37,16 +37,19 @@
         <p>10</p>
     })-->
     
-    <% arrPeople.forEach(person => { %>
+    <% arrX.forEach(people => { %>
         <!-- nếu đoạn này quá dài thì ta tách nó ra file personRow
         <div>
             <h3>Ten: <%= person.name %></h3>
             <p>Tuoi: <%= person.age %></p>
         </div>
         -->
-        <!--  <%- include('./partials/personRow.ejs', person) %> // nếu bên này chỉ truyền  biến person không thì bên personRow ta sửa lại-->
-        <%- include('./partials/personRow.ejs', {person}) %> <!--//khai báo biến person : person ,còn này ngược lại -->
-    <% }); %> <!-- chưa biết sai gì ở đây phần cuối-->
+        <%- include('./partials/personRow.ejs', {people}); %> <!--//khai báo biến person : person ,còn này ngược lại -->
+         <!--  <%- include('./partials/personRow.ejs', person) %> // nếu bên này chỉ truyền  biến person không thì bên personRow ta sửa lại-->
+        <% }); %>
+         <!-- code tới đây mà bị lỗi,vì <%%> không được để trong dấu 
+            <!-- --> 
+        -->
 
     <script src = "reload/reload.js"> </script>
 </body>

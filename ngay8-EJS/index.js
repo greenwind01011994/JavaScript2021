@@ -15,16 +15,6 @@ const reload = require('reload');   //eslint-disable-line
 // template engine
 const app = express();
 
-const arrX = [
-    { name: 'Ti', age: 10 },
-    { name: 'Teo', age: 11},
-    { name: 'Tun', age: 12},
-];
-app.locals.arrPeople = arrX;// không phải cứ tên biên là arryPeople thì gi là arrypeople
-
-//6. 
-const arrSubjects = ['Node' , 'Angular', 'Mongo', 'Express'];
-
 
 //1. thư mục các file views nằm ở views-ht
 app.set('views', './views-ht'); //đang xét views là tên thuộc tính của nó chưa phải tên thu mục nên phải ghi đúng //
@@ -36,6 +26,20 @@ app.set('view engine', 'ejs');  ///
     // khi chuyển đổi file đuôi html thành ejs thì ta không cần dùng views-ht/a.html
 app.get('/', (req, res) => res.sendfile('./views-ht/a.html'));// truy cập vào file html
 */
+
+
+const arrX = [
+    { name: 'Ti', age: 10 },
+    { name: 'Teo', age: 11},
+    { name: 'Tun', age: 12},
+];
+//app.locals.arrPeople = arrX;// không phải cứ tên biên là arryPeople thì gi là arrypeople
+
+//6. 
+const arrSubjects = ['Node' , 'Angular', 'Mongo', 'Express'];
+
+
+
 app.get('/', (req, res) => res.render('home')); // render ra file    //home là home.ejs ; render là gửi code thành giao diện
 
 //3. tạo ra 1 rout mới
@@ -44,7 +48,7 @@ app.get('/', (req, res) => res.render('home')); // render ra file    //home là 
 //5. cách truyền thứ 2, câu lênh render có 2 tham số, tham số thứ 2 là 1 oject có thuộc tính username thì bên ejs sẽ thành tên biến username 
 //app.get('/learn', (req, res) => res.render('learn', { username: 'phong'}));
 app.get('/learn', (req, res) =>{
-    res.render('learn', { username: 'phong1', arrSubjects });//muốn render các mảng môn học thì arrSubjects: arrySubjects. khi tên thuộc tính = tên giá trị thì ta rút gọn thành arrSubjects
+    res.render('learn', { username: 'phong1', arrSubjects,arrX });//muốn render các mảng môn học thì arrSubjects: arrySubjects. khi tên thuộc tính = tên giá trị thì ta rút gọn thành arrSubjects
 });
 //còn cách 1 : app.locals. phù hợp các thông tin mà người dùng đều dùng chung
 
