@@ -8,4 +8,4 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => res.render('home'));
 
 reload(app);
-app.listen(3000, () =>console.log('Server Started'));
+app.listen(8080, () =>console.log('Server Started'));
