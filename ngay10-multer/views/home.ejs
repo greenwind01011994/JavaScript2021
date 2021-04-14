@@ -7,6 +7,17 @@
     <title>Upload</title>
 </head>
 <body>
+    <!--
+    <form action="/signup" method="POST" enctype="multipart/form-data">  //1 file rất nặng, không thể gửi 1 phát lên được, mà phải chia nhiều phần, gửi nhiều lần nên ta phải có thuộc tính multipart/form-data   
+        <input type="text" placeholder="Enter your email" name="email">
+        <br><br>
+        <input type="text" placeholder="Enter your password" name="password">
+        <br><br>
+        <input type="file" name="profileSingle">    // cách gửi đơn giản nhất
+        <br><br>
+        <button>Sign Up</button>    
+    </form>
+    -->
     <form action="/signup" method="POST" enctype="multipart/form-data"> <!-- 1 file rất nặng, không thể gửi 1 phát lên được, mà phải chia nhiều phần, gửi nhiều lần nên ta phải có thuộc tính multipart/form-data  -->   
         <input type="text" placeholder="Enter your email" name="email">
         <br><br>
@@ -14,7 +25,9 @@
         <br><br>
         <input type="file" name="profileSingle"><!-- cách gửi đơn giản nhất-->
         <br><br>
-        <button>Sign Up</button>    
+        <input type="file" name="profileSingle">
+        <br><br>
+        <button>Sign Up2</button>    
     </form>
     <script src="reload/reload.js"></script>
 </body>

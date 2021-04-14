@@ -72,7 +72,8 @@ app.post('/signup', parser, (req,res) => { //thay vì parser thì ta thay upload
 
 //nên có đoạn này để upload file lên
 app.post('/signup', upload.single('profileSingle'), (req,res) => { //upload.single('tên  của input file') => trả cho ta 1 function 3 tham số ; đừng hỏi tại sao truyền tên như vậy vì ta sử dụng thư viện, mà thư viện yêu cầu thì mình làm theo
-    res.send(req.body);
+    //res.send(req.body);
+    res.send(req.file)
 });
 
 
