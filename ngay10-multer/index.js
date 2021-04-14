@@ -71,9 +71,24 @@ app.post('/signup', parser, (req,res) => { //thay vì parser thì ta thay upload
 */
 
 //nên có đoạn này để upload file lên
-app.post('/signup', upload.single('profileSingle'), (req,res) => { //upload.single('tên  của input file') => trả cho ta 1 function 3 tham số ; đừng hỏi tại sao truyền tên như vậy vì ta sử dụng thư viện, mà thư viện yêu cầu thì mình làm theo
+/*app.post('/signup', upload.single('profileSingle'), (req,res) => { //upload.single('tên  của input file') => trả cho ta 1 function 3 tham số ; đừng hỏi tại sao truyền tên như vậy vì ta sử dụng thư viện, mà thư viện yêu cầu thì mình làm theo
     //res.send(req.body);
-    res.send(req.file)
+    res.send(req.file) //nếu muốn upload nhiều file thì không .file nữa mà .files
+
+});*/
+//khi upload nhiều file thì thay vì single ta sử dụng array
+/*app.post('/signup', upload.array('profileSingle'), (req,res) => { 
+    res.send(req.files)
+
+}); */
+/* app.post('/signup', upload.fields([{name: 'chinh', maxCount: 1}, {name: 'phu', maxCount: 2}]), (req,res) => { 
+    res.send(req.files)
+
+}); */
+const filesConfig = [{name: 'chinh', maxCount: 1}, {name: 'phu', maxCount: 2}]
+app.post('/signup', upload.fields(filesConfig), (req,res) => { 
+    res.send(req.files)
+
 });
 
 
