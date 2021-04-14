@@ -7,7 +7,10 @@ const upload = multer({dest: './public'});// dest chỉ cho chúng ta lưu ở �
 */
 const storage = multer.diskStorage({
     destination: (req,file, cb) => cb(null, './public'),// lưu ở đâu
-    filename: (req, file, cb) => cb(null, 'a.jpg')
+    //filename: (req, file, cb) => cb(null, 'a.jpg')// để tên file không ghi đè lên nhau và không trùng 
+    //filename: (req, file, cb) => cb(null, Date.now()+'.jpg'),
+    filename: (req, file, cb) => cb(null, req.body.email +'.jpg')
+
 });
 
 const upload = multer({storage});
@@ -25,10 +28,11 @@ app.post('/signup', parser, (req,res) => { //thay vì parser thì ta thay upload
     res.send(req.body);
 });
 */
-/* khi khai báo const multer, upload;
+
+//nên có đoạn này để upload file lên
 app.post('/signup', upload.single('profileSingle'), (req,res) => { //upload.single('tên  của input file') => trả cho ta 1 function 3 tham số ; đừng hỏi tại sao truyền tên như vậy vì ta sử dụng thư viện, mà thư viện yêu cầu thì mình làm theo
     res.send(req.body);
 });
-*/
+
 reload(app);
 app.listen(8080, () =>console.log('Server Started'));
