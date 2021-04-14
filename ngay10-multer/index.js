@@ -9,7 +9,14 @@ const storage = multer.diskStorage({
     destination: (req,file, cb) => cb(null, './public'),// lưu ở đâu
     //filename: (req, file, cb) => cb(null, 'a.jpg')// để tên file không ghi đè lên nhau và không trùng 
     //filename: (req, file, cb) => cb(null, Date.now()+'.jpg'),
-    filename: (req, file, cb) => cb(null, req.body.email +'.jpg')
+    //filename: (req, file, cb) => cb(null, req.body.email +'.jpg'),
+    //filename: (req, file, cb) => cb(null, file.originalname),//originalname là tên file trên máy của người dùng và nó có đuôi sẵn
+    filename: (req, file, cb) => {
+        if(file.size >102400) {
+            return  cb(null, 'big-' + file.originalname)
+        }
+        cb(null, 'small-' + file.originalname)
+    }
 
 });
 
