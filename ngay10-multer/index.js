@@ -1,10 +1,17 @@
 const express = require('express');
+const reload = require('reload');
+
+const upload = require('./uploadConfig');
 //const parser = require('body-parser').urlencoded({extended: false});
 
-const multer = require('multer');
+
+//tách file sang uploadConfig *********************************************************************************
+
+//const multer = require('multer');
 /*
 const upload = multer({dest: './public'});// dest chỉ cho chúng ta lưu ở đâu, không cho ta quyền đặt tên file,..
 */
+/*
 const storage = multer.diskStorage({
     destination: (req,file, cb) => cb(null, './public'),// lưu ở đâu
     //filename: (req, file, cb) => cb(null, 'a.jpg')// để tên file không ghi đè lên nhau và không trùng 
@@ -18,13 +25,38 @@ const storage = multer.diskStorage({
             return  cb(null, 'big-' + file.originalname)
         }
         cb(null, 'small-' + file.originalname)
-    }
-    */
+    }////
+    
 });
+*/
 
-const upload = multer({storage});
+/*
+const limits = {fileSize: 102400};
+const upload = multer({storage, limits});
+*/
+
+/*
+function fileFilter(req, file, cb) {
+    if(file.mimetype === 'image/jpg' || file.mimetype)// thuộc tính mimetype
+}
+*/
+// thay vì gõ 2 lần file.mimetype  thì ta khai báo mimetype ra trước rồi mới so sánh, sẽ đẹp hơn
+/*function fileFilter(req, file, cb) {
+    const {mimetype} = file;
+    if(mimetype === 'image/jpg' || mimetype === 'image/png') { // thuộc tính mimetype
+        return cb(null, true);
+    } // chú ý file đuôi jpg có thể thực tế đuôi là jpeg
+    cb(new Error('File khong dung dinh dang! '));
+}
+
+
+const upload = multer({storage, fileFilter}); // tối đa truyền 4 cái : 1. dest or storage; 2. fileFilter; 3. limits; 4. preservePath
 
 const reload = require('reload');
+*/
+
+/*********************************************************************************************************************** */
+
 
 const app = express();
 
