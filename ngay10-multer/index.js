@@ -1,7 +1,7 @@
 const express = require('express');
 const reload = require('reload');
 
-const upload = require('./uploadConfig');
+const upload = require('./uploadConfig');// upload file qua
 //const parser = require('body-parser').urlencoded({extended: false});
 
 
@@ -74,6 +74,13 @@ app.post('/signup', parser, (req,res) => { //thay vì parser thì ta thay upload
 app.post('/signup', upload.single('profileSingle'), (req,res) => { //upload.single('tên  của input file') => trả cho ta 1 function 3 tham số ; đừng hỏi tại sao truyền tên như vậy vì ta sử dụng thư viện, mà thư viện yêu cầu thì mình làm theo
     res.send(req.body);
 });
+
+
+app.use((err, req, res, next) => { //phải truyền đủ 4 tham số // eslint-disable-line
+    res.send(err.message);
+});
+app.get('*', (req, res) => res.send('Cannot find this link'));
+
 
 reload(app);
 app.listen(8080, () =>console.log('Server Started'));
