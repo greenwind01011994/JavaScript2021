@@ -85,7 +85,7 @@ app.post('/signup', parser, (req,res) => { //thay vì parser thì ta thay upload
     res.send(req.files)
 
 }); */
-const filesConfig = [{name: 'chinh', maxCount: 1}, {name: 'phu', maxCount: 2}]
+const filesConfig = [{name: 'chinh', maxCount: 1}, {name: 'phu', maxCount: 2}];
 app.post('/signup', upload.fields(filesConfig), (req,res) => { 
     res.send(req.files)
 
