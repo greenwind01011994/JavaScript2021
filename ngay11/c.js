@@ -1,9 +1,12 @@
 const request = require('request');
 
-function cong(a, b) {
-    
+    function cong(a, b, cb) {
+        request(`http://localhost:8080/tinh/CONG/${a}/${b}`, (err, res, body) => {
+        cb(err, body);
+    });
 }
-
-request('http://localhost:8080/tinh/CONG/4/5', (err, res, body) => {
-    console.log(body);
+cong(4,5, (err, kq) => {
+    if(err) return console.log(err.message);
+    console.log('ket qua: ' + kq);
 });
+
