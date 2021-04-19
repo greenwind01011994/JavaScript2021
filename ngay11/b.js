@@ -9,7 +9,7 @@ request('http://ip.jsontest.com/', (err, res, body) => {
     //console.log(res);
 }); 
 
-//
+// cách viết function
 function getIp(cb) {
     request('http://ip.jsontest.com/', (err, res, body) => {
     cb(body);
@@ -17,8 +17,8 @@ function getIp(cb) {
     }); 
 }
 //getIp(x => console.log(x));
-//getIp(x => console.log(x));//ở đây mình thích đặt tên là gì cũng đc cũng chỉ là ip
+getIp(x => console.log(x));//ở đây mình thích đặt tên là gì cũng đc cũng chỉ là ip
 
-getIp(console.log);// tại sao nó vẫn log ra: getIp nhận vào 1 giá trị là 1 function và mình truyền contror.log  vào getIP(cb).
+//getIp(console.log);// tại sao nó vẫn log ra: getIp nhận vào 1 giá trị là 1 function và mình truyền contror.log  vào getIP(cb).
 //nên cb(body) tương đương với console.log(body)
 //chả khác gì khi getIp(x => console.log(x))
