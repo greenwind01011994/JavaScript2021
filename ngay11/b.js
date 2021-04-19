@@ -22,3 +22,13 @@ getIp(x => console.log(x));//ở đây mình thích đặt tên là gì cũng đ
 //getIp(console.log);// tại sao nó vẫn log ra: getIp nhận vào 1 giá trị là 1 function và mình truyền contror.log  vào getIP(cb).
 //nên cb(body) tương đương với console.log(body)
 //chả khác gì khi getIp(x => console.log(x))
+function getIp(cb) {
+    request('http://ip.jsontest.com/', (err, res, body) => {
+    cb(err,body);
+    
+    }); 
+}
+getIp((err, ip) => {
+    if(err) return console.log(err.message);
+    console.log(ip);
+});
