@@ -6,4 +6,6 @@
 const fs = require('fs');//fs là thư viện có sẵn trong nodeJS
 
 //đọc file thì
-fs.readFile('./x.txt')
+fs.readFile('./x.txt', 'utf8', (err,str) => {
+    console.log(err, str);
+});
