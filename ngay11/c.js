@@ -57,15 +57,26 @@ chia(4,5, (err, kq) => {
 });
 
 // (a + b) * h / 2
-
+/*
 function tinhDienTich(a, b, h, cb) {
-    cong(a, b, (errCong, tong) => {
+    cong(a, b, (err, tong) => { //đặt tong thay vì body vì dưới cũng body nữa...
+        if(err) return cb(err)// cb(err) để out put nó ra ngoài thì mới xử lý được, còn nếu log(err) cũng được nhưng khi xử lý chỗ khác thì ta phải viết ra lại
+        nhan(tong, h, (err, tich) => {
+            nhan(tong, h, (err, tich) {
+
+            });
+        });
+    })
+}
+ */
+function tinhDienTich(a, b, h, cb) {
+    cong(a, b, (errCong, tong) => {  //ta có thể đặt tên biến là errcong để khác nhau và tong trả về chuỗi, không phải số 
         if (errCong) return cb(errCong);
-        nhan(+tong, h, (errNhan, tich) => {
+        nhan(+tong, h, (errNhan, tich) => { //để đổi tong chuỗi thành số ta pass thêm dấu + để chuyển đổi thành số
             if (errNhan) return cb(errNhan);
             chia(+tich, 2, (errChia, kq) => {
                 if (errChia) return cb(errChia);
-                cb(null, kq);
+                cb(null, kq); //ở đây không cần return
             });
         });
     });
