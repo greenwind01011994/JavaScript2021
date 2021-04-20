@@ -41,7 +41,7 @@ function chiaPromise(a, b) {
 }
 
 /*congPromise(4,5)
-.then(kq => console.log(kq))
+.then(result => console.log(result))
 .catch(err => console.log(err.message)) */
 
 // (4 + 5) * 6 / 2
@@ -58,7 +58,8 @@ function tinhDienTich(a, b, h) {
     .then(tich => chiaPromise(+tich, 2))
 }
 
-// tinhDienTich(4, 5, 6)
-// .then(kq => console.log(kq))
-// .catch(err => console.log(err.message))
+tinhDienTich(4, 5, 6)
+.then(kq => console.log('kq: '+kq))
+.catch(err => console.log(err.message))
+
 
