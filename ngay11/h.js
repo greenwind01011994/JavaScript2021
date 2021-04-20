@@ -1,3 +1,4 @@
+/*
 function doSth() {
     return new Promise((resolve, reject) => {
         //làm tác vụ bất đồng bộ
@@ -5,3 +6,4 @@ function doSth() {
         reject(err);
     });
 }
+*/
