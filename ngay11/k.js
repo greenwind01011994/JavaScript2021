@@ -5,7 +5,7 @@ function congPromise(a, b) {
         if(typeof a !== 'number' || typeof b !== 'number') {
             return reject(new Error('Type error'));
         }
-        const url = `http://localhost:8080/tinh/CONG/${a}/${b}`;
+        const url = `http://localhost:3000/tinh/CONG/${a}/${b}`;
         request(url, (err, res, body) => {
             if (err) return reject(err);
             resolve(body);
@@ -18,7 +18,7 @@ function nhanPromise(a, b) {
         if(typeof a !== 'number' || typeof b !== 'number') {
             return reject(new Error('Type error'));
         }
-        const url = `http://localhost:8080/tinh/NHAN/${a}/${b}`;
+        const url = `http://localhost:3000/tinh/NHAN/${a}/${b}`;
         request(url, (err, res, body) => {
             if (err) return reject(err);
             resolve(body);
@@ -32,7 +32,7 @@ function chiaPromise(a, b) {
             return reject(new Error('Type error'));
         }
         if(b === 0) return reject(new Error('Divide by zero'));
-        const url = `http://localhost:8080/tinh/CHIA/${a}/${b}`;
+        const url = `http://localhost:3000/tinh/CHIA/${a}/${b}`;
         request(url, (err, res, body) => {
             if (err) return reject(err);
             resolve(body);
@@ -40,18 +40,24 @@ function chiaPromise(a, b) {
     });
 }
 
-// (4 + 5) * 6 / 2
+//async await
 
-Promise.all([congPromise('4', 5).catch(err => 200), chiaPromise(6, 2)])
-.then(mang => nhanPromise(+mang[0], +mang[1]))
-.then(kq => console.log(kq))
+// async function tinhDienTich(a, b, h) {
+//     try {
+//         const tong = await congPromise(a, b);
+//         const tich = await nhanPromise(+tong, h);
+//         const kq = await chiaPromise(+tich, 2);
+//         return Promise.resolve(kq);
+//     } catch(err) {
+//         // return Promise.reject(new Error('Loi tinh dien tich'));
+//         throw new Error('Loi');
+//     }
+// }
+
+// tinhDienTich(4, 5, 6)
+// .then(kq => console.log(kq))
+// .catch(err => console.log(err.message));
+
+Promise.race([congPromise(4, 5), nhanPromise('3', 2)])
+.then(x => console.log(x))
 .catch(err => console.log(err.message));
-
-// (4 + 5) * 6 / 2
-/*
-congPromise(4, 5)
-.then(tong => nhanPromise(tong, 6), () => 100)
-.then(tich => chiaPromise(+tich, 2))
-.then(kq => console.log(kq))
-.catch(err => console.log(err));
-*/
