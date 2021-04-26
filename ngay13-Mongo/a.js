@@ -1,12 +1,12 @@
-//const mongoClinent = require('mongodb').mongoClinent;
-const {mongoClinent} = require('mongodb');
+//const MongoClient = require('mongodb').MongoClient;
+const {MongoClient} = require('mongodb');
 
-const url = 'mongodb://localhost:27017/shop'
+const url = 'mongodb://localhost:27017/local';
 
 MongoClient.connect(url)
 .then(db => {
-    const words = db.collection('words');
-    words.find().toArray();
+    const test = db.collection('test');
+    return test.find().toArray();
 })
 .then(result => console.log(result))
 .catch(err => console.log(err.message))
