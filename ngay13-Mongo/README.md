@@ -1,4 +1,5 @@
-// table -> collection // record -> document
+// table -> collection 
+// record -> document
 
 Show all db ~ show dbs ~ db
 Switch db ~ use dbname
